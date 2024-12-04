@@ -112,7 +112,11 @@ export default function Navigation() {
             </Link>
           </li>
           <li>
-            <Link className={isActivePath("/scorecard")} href="/scorecard">
+            <Link
+              className={isActivePath("/scorecard")}
+              href="/scorecard"
+              onClick={toggleMenu}
+            >
               Score-card
             </Link>
           </li>

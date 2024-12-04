@@ -1,26 +1,42 @@
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function page() {
   //pro
   return (
     <main className="w-full mx-auto">
-      <section className="min-h-screen flex flex-col justify-center items-center bg-white text-black px-4">
-        <h1 className="text-6xl font-bold mb-6">
-          inven<span className="text-gray-600">Tar</span>
+      <section className="min-h-screen flex flex-col justify-center items-center bg-white text-black px-4 relative overflow-hidden">
+        {/* Paper texture overlay - base layer */}
+        <div className="absolute inset-0 opacity-[0.2] pointer-events-none mix-blend-multiply"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.3' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+            filter: 'contrast(220%) brightness(140%)',
+          }}
+        />
+        {/* Paper texture overlay - detail layer */}
+        <div className="absolute inset-0 opacity-[0.1] pointer-events-none mix-blend-overlay"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='detailFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23detailFilter)'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+            filter: 'contrast(180%) brightness(160%)',
+          }}
+        />
+        <h1 className="text-6xl font-bold mb-6 relative">
+          Inven<span className="text-gray-600">Tar</span>
         </h1>
         <p className="text-xl mb-4 text-gray-600 max-w-2xl text-center">
           Transform Your Inventory Into a Profit-Driving Machine
         </p>
         <p className="text-lg mb-8 text-gray-500 max-w-xl text-center">
-          Join 10,000+ businesses that have eliminated stockouts, reduced waste,
-          and boosted profits by up to 30% with our AI-powered inventory
-          solution
+          Join several businesses that have eliminated stockouts, reduced waste,
+          and boosted profits by up to 30% with smart inventory solutions
         </p>
-        <button className="bg-black text-white px-8 py-3 rounded-md hover:bg-gray-800 transition-colors">
+        <Button className="bg-black text-white px-8 py-3 rounded-md hover:bg-gray-800 transition-colors">
           Start Your Free Trial
-        </button>
+        </Button>
         <p className="mt-4 text-sm text-gray-500">
-          No credit card required • 14-day free trial
+          No credit card required • 1 Free consultation Call • 30-day free trial
         </p>
       </section>
 
@@ -85,8 +101,8 @@ export default function page() {
             </svg>
             <h3 className="text-2xl font-bold mb-4 text-gray-800">Optimize</h3>
             <p className="text-gray-600">
-              Let AI do the heavy lifting. Get smart restocking suggestions and
-              demand forecasts that actually work.
+              Let Algorithms do the heavy lifting. Get smart restocking
+              suggestions and demand forecasts that actually work.
             </p>
           </div>
         </div>
@@ -94,7 +110,7 @@ export default function page() {
 
       <section className="py-20 bg-white px-4">
         <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-          Trusted by Industry Leaders
+          Inventory Solutions You Can Trust
         </h2>
         <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div>
@@ -122,11 +138,11 @@ export default function page() {
         </h2>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
           {/* Basic Plan */}
-          <div className="border border-gray-200 rounded-lg p-8 hover:border-gray-300 transition-all self-start">
+          <div className="border  flex flex-col gap-3 border-gray-200 rounded-lg p-8 hover:border-gray-300 transition-all self-start">
             <h3 className="text-2xl font-bold mb-4">Basic</h3>
             <p className="text-gray-600 mb-6">Perfect for small businesses</p>
             <div className="mb-6">
-              <span className="text-4xl font-bold">$29</span>
+              <span className="text-4xl font-bold">$10</span>
               <span className="text-gray-600">/month</span>
             </div>
             <ul className="space-y-3 mb-8">
@@ -179,20 +195,23 @@ export default function page() {
                 Email support
               </li>
             </ul>
-            <button className="w-full py-2 border border-black text-black hover:bg-black hover:text-white transition-colors rounded">
-              Start Free Trial
-            </button>
+            <Link
+              href="/scorecard"
+              className="w-full p-2 border border-black text-center text-black hover:bg-black hover:text-white transition-colors rounded"
+            >
+              Start Free Trial{" "}
+            </Link>
           </div>
 
           {/* Pro Plan */}
-          <div className="border-2 border-black rounded-lg p-10 relative z-10 bg-white transform lg:scale-110 shadow-xl">
+          <div className="border-2 flex flex-col gap-3 border-black rounded-lg p-10 relative z-10 bg-white transform lg:scale-110 shadow-xl">
             <div className="absolute top-0 right-0 bg-black text-white text-sm py-1 px-3 rounded-bl-lg rounded-tr-lg">
               Popular
             </div>
             <h3 className="text-2xl font-bold mb-4">Pro</h3>
             <p className="text-gray-600 mb-6">For growing companies</p>
             <div className="mb-6">
-              <span className="text-4xl font-bold">$79</span>
+              <span className="text-4xl font-bold">$30</span>
               <span className="text-gray-600">/month</span>
             </div>
             <ul className="space-y-3 mb-8">
@@ -245,13 +264,16 @@ export default function page() {
                 Priority support
               </li>
             </ul>
-            <button className="w-full py-2 bg-black text-white hover:bg-gray-800 transition-colors rounded">
+            <Link
+              href="/scorecard"
+              className="w-full p-2 bg-black text-white hover:bg-gray-800 transition-colors rounded text-center"
+            >
               Start Free Trial
-            </button>
+            </Link>
           </div>
 
           {/* Enterprise Plan */}
-          <div className="border border-gray-200 rounded-lg p-8 hover:border-gray-300 transition-all self-start">
+          <div className="border flex flex-col gap-3 border-gray-200 rounded-lg p-8 hover:border-gray-300 transition-all self-start">
             <h3 className="text-2xl font-bold mb-4">Enterprise</h3>
             <p className="text-gray-600 mb-6">For large organizations</p>
             <div className="mb-6">
@@ -307,9 +329,13 @@ export default function page() {
                 24/7 dedicated support
               </li>
             </ul>
-            <button className="w-full py-2 border border-black text-black hover:bg-black hover:text-white transition-colors rounded">
+
+            <Link
+              href="/scorecard"
+              className="w-full p-2 border border-black text-black hover:bg-black hover:text-white transition-colors text-center rounded"
+            >
               Contact Sales
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -432,7 +458,7 @@ export default function page() {
       <footer className="bg-white text-gray-900 py-16 px-4">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-black">invenTar</h2>
+            <h2 className="text-2xl font-bold text-black">InvenTar</h2>
             <p className="text-sm">
               Making inventory management smarter for businesses worldwide.
             </p>
