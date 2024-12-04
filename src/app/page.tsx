@@ -395,9 +395,9 @@ export default function page() {
           <div className=" space-y-12">
             <Link
               href="/scorecard"
-              className="bg-white hover:bg-white/89 text-black border-blue-500 border px-8 py-4 rounded-lg text-lg font-semibold transition-colors w-full md:w-auto"
+              className="bg-white hover:bg-white/89 text-black border-blue-500 border px-8 py-4 rounded-lg text-lg font-semibold transition-colors w-auto"
             >
-              Get Your Free Score Card Now
+              Get Your Free Score Card
             </Link>
             <p className="text-sm text-gray-400">
               Takes only 2 minutes • Includes free expert consultation call
